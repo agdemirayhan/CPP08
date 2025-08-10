@@ -1,6 +1,11 @@
 #include "Span.hpp"
 #include <iostream>
 
+#define CYAN    "\033[36m"
+#define RED     "\033[31m"
+#define GREEN   "\033[32m"
+#define RESET   "\033[0m"
+
 Span::Span(unsigned int N) : _maxSize(N) {}
 
 Span::~Span() {}
@@ -30,7 +35,9 @@ int Span::shortestSpan() const {
             num2 = sorted[i];     
         }
     }
-    std::cout << "Shortest span between " << num1 << " and " << num2 << std::endl;
+    std::cout << std::endl;
+    std::cout << CYAN << "SHORTEST:" << RESET << std::endl;
+    std::cout << "Shortest span between " << num1 << " and " << num2 << " => " << num2 - num1 <<std::endl;
     return minSpan;
 }
 
@@ -41,5 +48,28 @@ int Span::longestSpan() const {
     int minVal = *std::min_element(_numbers.begin(), _numbers.end());
     int maxVal = *std::max_element(_numbers.begin(), _numbers.end());
 
+    std::cout << std::endl;
+    std::cout << CYAN << "LONGEST:" << RESET << std::endl;
+    std::cout << "Longest span between " << maxVal << " and " << minVal << " => " << maxVal - minVal <<std::endl;
+
     return maxVal - minVal;
+}
+
+
+void Span::printNumbers() const {
+    if (_numbers.size() > 50) {
+        std::cout << "[Container has " << _numbers.size() << " elements. Not displaying.]" << std::endl;
+        return;
+    }
+    std::cout << GREEN <<"Numbers in Container: " << RESET << "{";
+    for (size_t i = 0; i < _numbers.size(); ++i) {
+        if(i != _numbers.size() - 1)
+        {
+            std::cout << _numbers[i] << ", ";
+        } else
+        {
+            std::cout << _numbers[i];
+        }
+    }
+    std::cout << "}" << std::endl;
 }

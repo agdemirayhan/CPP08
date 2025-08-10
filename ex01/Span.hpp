@@ -30,6 +30,8 @@ public:
 
     int shortestSpan() const;
     int longestSpan() const;
+    void printNumbers() const;
+
 };
 
 #endif
