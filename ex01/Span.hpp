@@ -22,7 +22,7 @@ public:
     void addNumber(int number);
 
     template<typename Iterator>
-    void addNumber(Iterator begin, Iterator end) {
+    void addNumbers(Iterator begin, Iterator end) {
         if (_numbers.size() + std::distance(begin, end) > _maxSize)
             throw std::runtime_error("Cannot add: exceeding max size");
         _numbers.insert(_numbers.end(), begin, end);

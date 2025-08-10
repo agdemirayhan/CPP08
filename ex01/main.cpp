@@ -3,15 +3,17 @@
 #include <cstdlib>
 #include <ctime>
 
-#define CYAN    "\033[36m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define RESET   "\033[0m"
+#define CYAN "\033[36m"
+#define RED "\033[31m"
+#define GREEN "\033[32m"
+#define RESET "\033[0m"
 
-int main() {
+int main()
+{
     std::srand(std::time(0));
 
-    try {
+    try
+    {
         Span sp = Span(5);
 
         sp.addNumber(6);
@@ -24,6 +26,11 @@ int main() {
 
         sp.shortestSpan();
         sp.longestSpan();
+
+        std::vector<int> v = {1, 2, 3, 4, 5};
+        Span sp2 = Span(5);
+        sp2.addNumbers(v.begin(), v.end());
+        sp2.printNumbers();
 
         // BIG CONTAINER TEST
         std::cout << std::endl;
@@ -38,7 +45,7 @@ int main() {
 
         // EMPTY CONTAINER TEST
         std::cout << std::endl;
-        Span empty(5);
+        Span empty;
         for (int i = 0; i < 0; ++i)
             empty.addNumber(rand());
         std::cout << RED << "Empty container test: " << RESET << std::endl;
@@ -46,8 +53,9 @@ int main() {
 
         empty.shortestSpan();
         empty.longestSpan();
-
-    } catch (const std::exception& e) {
+    }
+    catch (const std::exception &e)
+    {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 

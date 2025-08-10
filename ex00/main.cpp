@@ -28,7 +28,7 @@ int main()
     
     searchAndPrint(vec, 20, "vector");
     searchAndPrint(vec, 40, "vector");
-
+    
     std::list<int> lst;
     lst.push_back(1);
     lst.push_back(2);
